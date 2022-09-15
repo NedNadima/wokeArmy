@@ -1,0 +1,47 @@
+$def with (page)
+$var css: static/css/bootstrap.min.css
+$var js: static/js/bootstrap.min.js static/js/jquery-3.6.1.min.js static static/js/scripty.js
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Woke Army</title>
+
+  $if self.css:
+    $for style in self.css.split():
+      <link rel="stylesheet" href="$style" />
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Woke Army</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href='/'>Home</a>
+      <a class="nav-item nav-link" href='/discover'>Discover</a>
+      <a class="nav-item nav-link" href='/profile'>Profile</a>
+      <a class="nav-item nav-link" href='/setting'>Settings</a>
+    </div>
+  </div>
+
+  <div class="pull-right" >
+      <a class="nav-item nav-link" href='/register'>Register</a>
+  </div>
+</nav>
+
+<br/><br/><br/><br/>
+
+<div id="app">
+      $:page
+    </div>
+
+    $if self.js:
+        $for script in self.js.split():
+            <script src="$script"></script>
+</body>
+</html>
